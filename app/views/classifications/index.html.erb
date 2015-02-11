@@ -1,21 +1,12 @@
-<h1>INDEX classification</h1>
+<h1>Classification</h1>
 
 
 
 <% @classifications.each do |classification| %>
 
-<p>Classification Name: <%= @classification.name %></p>
-
-<!--<p>Number of animals: <%= @classification. %></p></-->
-
   <p>
     <%= link_to(classification.name, classification_path(classification)) %>
+    <%=classification.animals.count%>
   </p>
 
 <% end %>
-
-<!--
-each Classification name
-with the number of animals that are included (e.g. "Mammalia (10 animals)")
-a link to the ClassificationsController#show method
-</-->

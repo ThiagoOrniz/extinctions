@@ -1,23 +1,16 @@
-<!--> the current Classification name at the top of the page
-links to each animal – these links should point to the AnimalsController#show route
-the animals should be sorted by exctinction date, oldest to newest (do this in the controller)
-a picture of each animal (but only if it has one) – you'll want to use the image_tag method
-whether the extinction was recent (use your recent? method)
-</-->
-
-<h1><%= @classification.name</h1>
 
 
+<h1><%= @classification.name %></h1>
+ 
+ <% @classification.animals.sort { |a,b| a.extinction_date <=> b.extinction_date }.each do |animal| %> 
 
+ <li> 
+     <%= link_to(animal.name, animal_path(animal)) %>
 
-<% @classifications.each do |classification| %>
-
-<p>Classification Name: <%= @classification.name %></p>
-
-<!--<p>Number of animals: <%= @classification. %></p></-->
-
-  <p>
-    <%= link_to(classification.name, classification_path(classification)) %>
-  </p>
-
+	 <% if animal.recent? %>    
+     <%= image_tag(animal.image_url) %>
+     <% end %>
+     
+   </li>&nbsp;
 <% end %>
+

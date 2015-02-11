@@ -1,6 +1,9 @@
 class AnimalsController < ApplicationController
 
 	def show
-    	@classification = Classification.find(params[:id])
+    	@animal = Animal.find(params[:id])
   	end
-end
+
+  	
+ end
+

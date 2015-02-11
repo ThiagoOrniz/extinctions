@@ -1,3 +1,15 @@
-<h1><%= @animals.name</h1>
 
+<h1><%= @animal.name %></h1>
+
+	
+ <% if !@animal.common_names[0].name.empty?%>    
+    <p> <%= @animal.common_names[0].name %> </p>
+ <% end %>
+
+
+  <% if @animal.recent? %>    
+     <%= image_tag(@animal.image_url) %>
+  <% end %>
+
+<p><%= link_to("source:", @animal.url) %></p>
 
